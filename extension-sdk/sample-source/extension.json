@@ -1,0 +1,12 @@
+﻿{
+  "id": "sample-source",
+  "name": "Sample Source",
+  "version": "0.1.0",
+  "description": "示例连接器：演示扩展协议、搜索与解析接口。",
+  "runtime": "node",
+  "entry": "index.mjs",
+  "kind": "source",
+  "capabilities": ["search", "resolve", "health"],
+  "permissions": ["network"]
+}
+

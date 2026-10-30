@@ -1,0 +1,573 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>留声 · LSA</title>
+<link rel="stylesheet" href="app.css?v=20261031-18">
+</head>
+<body class="booting">
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-library" viewBox="0 0 24 24"><path d="M4 5.5h16M4 12h16M4 18.5h10"/><circle cx="19.5" cy="18.5" r="1.2" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4 4"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4.5 19h15"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7C19 15.6 12 20 12 20Z"/></symbol>
+  <symbol id="i-record" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08a1.7 1.7 0 0 0-1.11-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8.97 4.5 1.7 1.7 0 0 0 10 2.94V3h4v-.06a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 10H21v4h-.04A1.7 1.7 0 0 0 19.4 15Z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.5h6l2 2h9v9a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6.7M20 5v6h-6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 5v14M18 6l-9 6 9 6z"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M18 5v14M6 6l9 6-9 6z"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M4 7h3.4l9.2 10H20M4 17h3.4l3.2-3.5M14 7h6M17 4l3 3-3 3M17 14l3 3-3 3"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11V9a4 4 0 0 1 4-4h9m0 0-3-3m3 3-3 3M20 13v2a4 4 0 0 1-4 4H7m0 0 3 3m-3-3 3-3"/></symbol>
+  <symbol id="i-order" viewBox="0 0 24 24"><path d="M5 7h9M5 12h9M5 17h6"/><path d="M18 9v7m0 0 2.5-2.5M18 16l-2.5-2.5"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16.5 9a4.5 4.5 0 0 1 0 6"/></symbol>
+  <symbol id="i-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m16.5 10 4 4m0-4-4 4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8h.01"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="12" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4H5.5A1.5 1.5 0 0 0 4 5.5v10A1.5 1.5 0 0 0 5.5 17H8"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M9 7V4.8h6V7M7.5 7l.8 12h7.4l.8-12M10 10.5v5M14 10.5v5"/></symbol>
+  <symbol id="i-retry" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6.7M20 5v6h-6"/></symbol>
+  <symbol id="i-queue" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="m18 15 3 3-3 3"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 0 2.3-5.7M4 4v6h6"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-sleep" viewBox="0 0 24 24"><path d="M20 14.5A7.5 7.5 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/><path d="M15 4h4l-4 4h4"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0V8ZM12 16v5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12h2l2-6 3 13 3-10 3 7 2-4h3"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h5M13 7h7M4 17h8M16 17h4"/><circle cx="11" cy="7" r="2.2"/><circle cx="14" cy="17" r="2.2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></symbol>
+</svg>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="M12 3.2v5.2M12 15.6v5.2M3.2 12h5.2M15.6 12h5.2"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></svg></div>
+      <div class="brand-copy"><div class="brand-name">留声</div><div class="brand-sub">LSA · 本地音乐档案</div></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">工作台</div>
+      <nav class="nav" aria-label="主要导航">
+        <button class="nav-item active" data-page="library" aria-current="page"><svg class="icon"><use href="#i-library"/></svg><span>音乐库</span><span class="nav-count" id="navCount">–</span></button>
+        <button class="nav-item" data-page="recent"><svg class="icon"><use href="#i-history"/></svg><span>最近播放</span></button>
+        <button class="nav-item" data-page="search"><svg class="icon"><use href="#i-search"/></svg><span>搜索下载</span></button>
+        <button class="nav-item" data-page="downloads"><svg class="icon"><use href="#i-download"/></svg><span>下载任务</span><span class="nav-count hidden" id="navQueue">0</span></button>
+        <button class="nav-item" data-page="likes"><svg class="icon"><use href="#i-heart"/></svg><span>喜欢同步</span><span class="nav-count hidden" id="navLikes">0</span></button>
+        <button class="nav-item" data-page="record"><svg class="icon"><use href="#i-record"/></svg><span>录音</span></button>
+      </nav>
+    </div>
+
+    <div class="nav-group nav-group-bottom">
+      <div class="nav-label">应用</div>
+      <nav class="nav" aria-label="应用设置">
+        <button class="nav-item" data-page="settings"><svg class="icon"><use href="#i-settings"/></svg><span>设置</span></button>
+        <button class="nav-item" data-page="extensions"><svg class="icon"><use href="#i-plug"/></svg><span>扩展</span></button>
+      </nav>
+    </div>
+
+    <div class="sidebar-foot">
+      <div class="connection"><span class="status-dot off" id="backendDot"></span><span id="backendText">连接中…</span></div>
+      <div class="sidebar-meta" id="sidebarMeta">正在加载索引</div>
+      <div class="version">留声 v3.0 · 本地优先</div>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <section class="page active" id="page-library" aria-labelledby="libTitle">
+      <header class="page-head">
+        <div class="page-title"><h1 id="libTitle">音乐库</h1><p id="libSub">正在加载本地索引…</p></div>
+        <div class="head-actions">
+          <button id="btnExportM3u" class="btn ghost small">导出 M3U</button>
+          <button id="btnOpenLib" class="btn ghost"><svg class="icon"><use href="#i-folder"/></svg>打开目录</button>
+          <button id="btnRefresh" class="btn icon-btn ghost" aria-label="刷新音乐库" title="刷新音乐库"><svg class="icon"><use href="#i-refresh"/></svg></button>
+        </div>
+      </header>
+
+      <div class="library-summary">
+        <span class="summary-count"><strong id="statCount">–</strong> 首</span>
+        <span id="statSize">–</span>
+        <span id="statFormats">–</span>
+        <span class="summary-ok" id="indexState">载入中</span>
+      </div>
+
+      <div class="panel library-panel">
+        <div class="toolbar">
+          <label class="search-field"><svg class="icon"><use href="#i-search"/></svg><input id="libSearch" placeholder="搜索歌名、歌手、专辑…" autocomplete="off" aria-label="搜索本地歌曲"><button id="libSearchClear" type="button" class="field-clear hidden" aria-label="清空本地搜索"><svg class="icon"><use href="#i-x"/></svg></button></label>
+          <div class="filter-group" id="libFilters" role="group" aria-label="格式筛选">
+            <button class="chip active" data-filter="all">全部</button>
+            <button class="chip" data-filter="flac">FLAC</button>
+            <button class="chip" data-filter="mp3">MP3</button>
+            <button class="chip" data-filter="m4a">M4A</button>
+            <button class="chip" data-filter="other">其他</button>
+          </div>
+          <label class="sort-field"><span>排序</span><select id="libSort"><option value="time">最近添加</option><option value="artist">歌手</option><option value="title">歌名</option><option value="size">大小</option><option value="format">格式</option></select></label>
+        </div>
+        <div class="table-head lib-grid" aria-hidden="true">
+          <span class="col-index">#</span><span>歌曲</span><span class="col-album">专辑</span><span class="col-format">格式</span><span class="col-size">大小</span><span></span>
+        </div>
+        <div id="libSkeleton" class="table-skeleton" aria-hidden="true"></div>
+        <div id="libList" class="lib-list" role="listbox" aria-label="本地歌曲" tabindex="-1"></div>
+        <div class="list-foot"><span id="libFoot">加载中…</span><button id="btnMore" class="btn ghost small hidden">加载更多</button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-recent" aria-labelledby="recentTitle">
+      <header class="page-head">
+        <div class="page-title"><h1 id="recentTitle">最近播放</h1><p>你最近在本地听过的歌曲，点击即可继续播放。</p></div>
+        <div class="head-actions"><button id="btnClearRecent" class="btn ghost small">清空记录</button></div>
+      </header>
+      <div class="panel recent-panel">
+        <div class="panel-head"><div><h2>播放历史</h2><p id="recentSub">本机记录，最近 60 首</p></div><span class="badge" id="recentCount"></span></div>
+        <div id="recentList" class="recent-list" role="list"></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-search" aria-labelledby="searchTitle">
+      <header class="page-head">
+        <div class="page-title"><h1 id="searchTitle">搜索下载</h1><p>一个搜索框，聚合平台；下载统一落到本地音乐库。</p></div>
+      </header>
+
+      <form id="searchForm" class="search-hero" role="search">
+        <label class="search-field search-field-xl"><svg class="icon"><use href="#i-search"/></svg><input id="searchInput" placeholder="搜索歌曲、歌手，或粘贴分享链接" autocomplete="off" aria-label="搜索歌曲、歌手或链接"><button id="searchInputClear" type="button" class="field-clear hidden" aria-label="清空搜索"><svg class="icon"><use href="#i-x"/></svg></button><kbd>Enter</kbd></label>
+        <button type="submit" id="btnSearch" class="btn primary lg">搜索</button>
+      </form>
+
+      <div class="search-history hidden" id="searchHistory">
+        <span class="search-history-label">最近搜索</span>
+        <div class="search-history-list" id="searchHistoryList"></div>
+        <button id="searchHistoryClear" type="button" class="search-history-clear">清空</button>
+      </div>
+
+      <div class="panel search-panel">
+        <div class="panel-head"><div><h2>搜索结果</h2><p id="searchCount">还没有结果</p></div><div class="head-actions"><button id="btnSelectAll" class="btn ghost small">全选</button><button id="btnDownloadSelected" class="btn primary small" disabled>下载选中</button></div></div>
+        <div id="searchHint" class="hint">输入关键词，结果会汇总多个平台；勾选后可批量下载。</div>
+        <div id="searchSkeleton" class="table-skeleton" aria-hidden="true"></div>
+        <div id="searchList" class="list search-list" role="list"></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-downloads" aria-labelledby="downloadsTitle">
+      <header class="page-head">
+        <div class="page-title"><h1 id="downloadsTitle">下载任务</h1><p>队列与最近记录；完成后的文件在音乐库里。</p></div>
+        <div class="head-actions"><button id="btnSodaUgc" class="btn ghost small">补下原声</button><button id="btnRetryFailed" class="btn ghost small">失败换源</button><button id="btnClearFailed" class="btn ghost small">清理失败</button><button id="btnRefreshDownloads" class="btn ghost icon-btn" aria-label="刷新下载任务" title="刷新下载任务"><svg class="icon"><use href="#i-refresh"/></svg></button><button id="btnClearDownloads" class="btn danger ghost small">清空等待</button></div>
+      </header>
+
+      <div class="download-metrics">
+        <div class="metric"><span>等待</span><strong id="dlWaiting">0</strong></div>
+        <div class="metric"><span>下载中</span><strong id="dlDownloading" class="accent-text">0</strong></div>
+        <div class="metric"><span>成功</span><strong id="dlSuccess">0</strong></div>
+        <div class="metric"><span>失败</span><strong id="dlFailed" class="danger-text">0</strong></div>
+        <div class="metric wide"><span>总进度</span><strong id="dlProgressText">0 / 0</strong><div class="progress-track"><i id="dlProgressBar"></i></div></div>
+      </div>
+
+      <div class="panel downloads-panel">
+        <div class="panel-head"><div><h2>队列</h2><p id="downloadsSub">等待下载任务</p></div><div class="segmented" role="tablist" aria-label="下载视图"><button class="active" data-dltab="active" role="tab" aria-selected="true">当前</button><button data-dltab="records" role="tab" aria-selected="false">最近</button></div></div>
+        <div id="downloadsSkeleton" class="table-skeleton" aria-hidden="true"></div>
+        <div id="downloadsBody" class="downloads-body"></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-likes" aria-labelledby="likesTitle">
+      <header class="page-head">
+        <div class="page-title"><h1 id="likesTitle">喜欢同步</h1><p>同步发现红心并加入下载队列；下载完成后自动整理入库。</p></div>
+        <div class="head-actions"><button id="btnLikesSync" class="btn primary">立即同步</button><button id="btnLikesReport" class="btn ghost hidden"><svg class="icon"><use href="#i-folder"/></svg>报告</button></div>
+      </header>
+      <div class="likes-grid">
+        <section class="panel">
+          <div class="panel-head"><div><h2>自动同步</h2><p id="likesScheduleText">客户端运行时在后台执行</p></div><div class="likes-head-actions"><span id="likesRunPill" class="status-pill status-skipped">空闲</span></div></div>
+          <div class="likes-config">
+            <label class="switch-row"><span><strong>定时检查</strong><small>只在客户端运行时生效</small></span><input id="likesEnabled" type="checkbox"><i class="switch" aria-hidden="true"></i></label>
+            <div class="config-row"><span>间隔</span><select id="likesInterval"><option value="6">每 6 小时</option><option value="12">每 12 小时</option><option value="24">每天</option><option value="72">每 3 天</option></select></div>
+            <div class="config-row"><span>上次</span><strong id="likesLast">—</strong></div>
+            <div class="config-row"><span>下次</span><strong id="likesNext">—</strong></div>
+            <label class="check-row"><input id="likesBackfill" type="checkbox"><span>首次补齐历史喜欢</span><button class="info-btn" data-tip="默认首次只建立基线，不批量下载历史红心；勾选后会把各平台喜欢里尚未入库的歌曲加入下载。适合已经积累了很多红心的情况。" aria-label="补齐历史说明"><svg class="icon"><use href="#i-info"/></svg></button></label>
+            <label class="check-row"><input id="likesAutoImport" type="checkbox"><span>下载完成后自动整理入库</span></label>
+            <label class="check-row"><input id="likesReport" type="checkbox"><span>生成同步报告</span><button class="info-btn" data-tip="默认关闭。开启后每次同步才生成 Markdown 报告，并在右上角显示「报告」入口；关闭时不再写报告文件。" aria-label="同步报告说明"><svg class="icon"><use href="#i-info"/></svg></button></label>
+            <label class="check-row"><input id="likesAutoRemoveUnliked" type="checkbox"><span>取消喜欢时删除本地文件</span><button class="info-btn" data-tip="取消喜欢后把对应歌曲移入 Windows 回收站；如果同一首歌仍被其它已登录平台喜欢，则保留。按歌名 + 歌手完全匹配。" aria-label="取消喜欢删除说明"><svg class="icon"><use href="#i-info"/></svg></button></label>
+            <label class="check-row"><input id="likesAutoDeleteDup" type="checkbox"><span>自动清理完全重复来源</span><button class="info-btn" data-tip="只处理 SHA-256 完全相同的来源文件，送入回收站；近似重复只写报告不删除。库内始终保留一份。" aria-label="自动清理重复说明"><svg class="icon"><use href="#i-info"/></svg></button></label>
+            <label class="check-row"><input id="likesAutoMaintain" type="checkbox"><span>定时整理音乐库</span><button class="info-btn" data-tip="按设定间隔扫描来源目录，自动导入新文件、去重、刷新索引；默认只整理，不安全删除近似重复。" aria-label="定时整理说明"><svg class="icon"><use href="#i-info"/></svg></button></label>
+            <div class="config-row"><span>整理</span><strong id="likesMaintainNext">—</strong></div>
+          </div>
+          <div id="likesStatus" class="quick-status" role="status"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div><h2>来源</h2><p>登录后才会同步</p></div><button class="info-btn" data-tip="汽水复用本机客户端登录态；网易云、QQ 需要在「设置 → 管理」扫码或配置 Cookie。未登录的平台会在动态里标记为跳过，不会中断其它平台。" aria-label="来源说明"><svg class="icon"><use href="#i-info"/></svg></button></div>
+          <div id="likesSources" class="likes-sources"></div>
+          <div class="likes-tip">第一次使用建议先开「补齐历史喜欢」跑一次，之后只同步新增红心。</div>
+        </section>
+      </div>
+      <div class="panel likes-log">
+        <div class="panel-head"><div><h2>同步动态</h2><p>历史运行记录；当前登录状态看右侧「来源」</p></div><button id="btnLikesRefresh" class="btn ghost small"><svg class="icon"><use href="#i-refresh"/></svg>刷新</button></div>
+        <div id="likesEvents" class="likes-events"></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-record" aria-labelledby="recordTitle">
+      <header class="page-head"><div class="page-title"><h1 id="recordTitle">录音</h1><p>录制系统声音，停止后自动转成 FLAC 保存。</p></div></header>
+      <div class="record-layout">
+        <section class="panel recorder">
+          <div class="record-top"><span>系统声音</span><span class="record-state-pill" id="recordState">空闲</span></div>
+          <div class="record-orb" id="recordOrb"><svg class="icon"><use href="#i-record"/></svg></div>
+          <div class="record-time" id="recordTime">00:00</div>
+          <div class="waveform" id="recordWave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <button id="btnRecord" class="btn record-start">开始录音</button>
+          <div class="record-tip">保存到 <code id="recordTipPath">–</code></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div><h2>最近录音</h2><p>系统声音 · FLAC</p></div><button id="btnOpenRec" class="btn ghost small"><svg class="icon"><use href="#i-folder"/></svg>打开</button></div>
+          <div id="recordList" class="list"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" id="page-extensions" aria-labelledby="extensionsTitle">
+      <header class="page-head"><div class="page-title"><h1 id="extensionsTitle">扩展</h1><p>接入协议、插件管理与开发工具。核心功能不依赖任何外部扩展。</p></div><button id="btnInstallExtension" class="btn primary"><svg class="icon"><use href="#i-plus"/></svg>从文件夹安装</button></header>
+      <div class="settings-layout">
+        <div class="settings-main">
+          <section class="panel">
+            <div class="panel-head"><div><h2>已安装扩展</h2><p>版本化安装，可禁用、回退和移除</p></div><button id="btnInstallSample" class="btn ghost small">安装示例</button></div>
+            <div id="extensionList" class="extension-list"></div>
+          </section>
+          <section class="panel">
+            <details class="dev-guide">
+              <summary><span><b>开发一个扩展</b><small>SDK、示例与测试器</small></span><span class="badge">music-extension-dev</span></summary>
+              <ol class="dev-steps">
+                <li><b>读协议</b><span>看 manifest、JSON-RPC 方法和返回结构。协议和示例都在本机，不联网。</span></li>
+                <li><b>写连接器</b><span>实现 describe / health / search / resolve；凭据从本机配置读取。</span></li>
+                <li><b>跑测试</b><span>用测试器启动连接器，检查 describe、health 和 search 返回。</span></li>
+                <li><b>安装与回退</b><span>从文件夹安装；健康检查通过才启用，旧版本随时可回退。</span></li>
+              </ol>
+              <div class="dev-actions">
+                <button id="btnCopyExtensionPrompt" class="btn primary small">复制 Agent 指令</button>
+                <button id="btnOpenDevWorkspace" class="btn ghost small">打开开发目录</button>
+                <button id="btnOpenExtensionDocs" class="btn ghost small">查看协议</button>
+              </div>
+              <p class="small-text dev-note">Skill：<code>extension-sdk/SKILL.md</code>；测试：<code>node extension-sdk/test-connector.mjs &lt;目录&gt;</code></p>
+            </details>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>开发工具</h2><p>自动检测 Codex / Claude Code / DSH</p></div><button id="btnDetectAgents" class="btn ghost small"><svg class="icon"><use href="#i-refresh"/></svg>重新检测</button></div>
+            <div id="agentList" class="agent-list"></div>
+          </section>
+        </div>
+        <div class="settings-side">
+          <section class="panel">
+            <div class="panel-head"><div><h2>安全模式</h2><p>启动保护</p></div><span id="safeModeBadge" class="badge">关闭</span></div>
+            <p class="small-text">安全模式会禁用全部外部扩展，只保留内置功能；随时可以关闭。</p>
+            <button id="btnSafeMode" class="btn ghost small">开启安全模式</button>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>协议</h2><p>本地、可回退</p></div></div>
+            <p class="small-text">扩展通过本地 JSON-RPC 运行，独立版本目录；崩溃不会阻止应用启动。</p>
+            <button id="btnOpenExtensions" class="btn ghost small"><svg class="icon"><use href="#i-folder"/></svg>打开扩展目录</button>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>扩展边界</h2><p>能做什么，不能做什么</p></div></div>
+            <div class="capability-notes">
+              <div><b>稳定</b><span>安装、健康检查、启用/禁用、回退、安全模式</span></div>
+              <div><b>协议预览</b><span>source 的 search / resolve；尚未接进客户端搜索下载</span></div>
+              <div><b>预留</b><span>metadata / lyrics / cover 提供者</span></div>
+              <div><b>不允许</b><span>改主界面/数据库、任意读写文件、绕过登录或 DRM</span></div>
+            </div>
+            <button id="btnOpenCapabilities" class="btn ghost small">查看能力与限制</button>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-settings" aria-labelledby="settingsTitle">
+      <header class="page-head"><div class="page-title"><h1 id="settingsTitle">设置</h1><p>外观、账号与存储</p></div></header>
+      <div class="settings-layout">
+        <div class="settings-main">
+          <section class="panel">
+            <div class="panel-head"><div><h2>外观</h2></div><span id="themeState" class="badge">黑胶</span></div>
+            <div class="ui-scale-row">
+              <div class="ui-scale-copy"><strong>界面比例</strong></div>
+              <div class="ui-scale-slider">
+                <input id="uiScaleRange" type="range" min="85" max="150" step="5" value="100" aria-label="界面比例">
+                <output id="uiScaleValue" for="uiScaleRange">100%</output>
+                <button id="btnUiScaleReset" type="button" class="btn ghost small">重置</button>
+                <button class="info-btn" data-tip="调整文字、行高和控件的整体显示比例；只影响本机显示。" aria-label="界面比例说明"><svg class="icon"><use href="#i-info"/></svg></button>
+              </div>
+            </div>
+            <div class="ui-scale-row">
+              <div class="ui-scale-copy"><strong>语言</strong></div>
+              <div class="ui-scale-options" id="languageOptions" role="radiogroup" aria-label="界面语言">
+                <button type="button" data-language="zh-CN" class="active">中文</button>
+                <button type="button" data-language="en-US">English</button>
+              </div>
+            </div>
+            <div class="theme-section-label">主题</div>
+            <div class="theme-picker" id="themePicker" role="radiogroup" aria-label="界面主题">
+              <button type="button" class="theme-option active" data-theme-mode="vinyl" role="radio" aria-checked="true">
+                <span class="theme-swatch theme-swatch-vinyl"></span><strong>黑胶</strong><small>暖黑与铜色</small>
+              </button>
+              <button type="button" class="theme-option" data-theme-mode="paper" role="radio" aria-checked="false">
+                <span class="theme-swatch theme-swatch-paper"></span><strong>纸页</strong><small>米白与墨色</small>
+              </button>
+              <button type="button" class="theme-option" data-theme-mode="celadon" role="radio" aria-checked="false">
+                <span class="theme-swatch theme-swatch-celadon"></span><strong>青瓷</strong><small>深青与灰绿</small>
+              </button>
+              <button type="button" class="theme-option" data-theme-mode="ocean" role="radio" aria-checked="false">
+                <span class="theme-swatch theme-swatch-ocean"></span><strong>夜蓝</strong><small>深蓝与雾蓝</small>
+              </button>
+              <button type="button" class="theme-option" data-theme-mode="cherry" role="radio" aria-checked="false">
+                <span class="theme-swatch theme-swatch-cherry"></span><strong>樱桃</strong><small>酒红与珊瑚</small>
+              </button>
+              <button type="button" class="theme-option" data-theme-mode="system" role="radio" aria-checked="false">
+                <span class="theme-swatch theme-swatch-system"></span><strong>跟随系统</strong><small>随 Windows 切换</small>
+              </button>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>快捷键</h2></div><div class="head-actions"><button class="info-btn" data-tip="快捷键默认关闭。点「设置」后按下组合键，Esc 取消。" aria-label="快捷键说明"><svg class="icon"><use href="#i-info"/></svg></button><button id="btnClearShortcuts" class="btn ghost small">全部清除</button></div></div>
+            <div id="shortcutList" class="shortcut-list"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>账号与来源</h2></div><button class="info-btn" data-tip="平台设置由本机 go-music-dl 提供；扫码或手动 Cookie 只保存在本机数据目录，客户端不读取账号密码。" aria-label="账号说明"><svg class="icon"><use href="#i-info"/></svg></button></div>
+            <div class="setting-row"><div class="setting-icon"><svg class="icon"><use href="#i-search"/></svg></div><div class="setting-copy"><strong>平台账号</strong><p>网易云 / QQ / 汽水</p></div><button id="btnLogin" class="btn ghost small">管理</button></div>
+            <div class="setting-row"><div class="setting-icon"><svg class="icon"><use href="#i-disc"/></svg></div><div class="setting-copy"><strong>汽水喜欢</strong><p>从本机汽水客户端读取登录态</p></div><button id="btnGotoSoda" class="btn ghost small">去同步</button></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>音乐库维护</h2><p>只新增，不移动来源</p></div><button class="info-btn" data-tip="整理会扫描来源并导入可播放文件；重复内容用硬链接或跳过；加密原档需先解密。报告保存在当前音乐库的报告目录。" aria-label="维护说明"><svg class="icon"><use href="#i-info"/></svg></button></div>
+            <div class="setting-row"><div class="setting-icon"><svg class="icon"><use href="#i-library"/></svg></div><div class="setting-copy"><strong>整理音乐库</strong><p>导入、去重与索引刷新</p></div><button id="btnMaintain" class="btn small">开始</button></div>
+            <div class="setting-row"><div class="setting-icon"><svg class="icon"><use href="#i-download"/></svg></div><div class="setting-copy"><strong>解密原档</strong><p>NCM → FLAC / MP3</p></div><button id="btnDecrypt" class="btn small">开始</button></div>
+            <div class="setting-row"><div class="setting-icon"><svg class="icon"><use href="#i-folder"/></svg></div><div class="setting-copy"><strong>报告目录</strong><p>整理与同步记录</p></div><button id="btnOpenReports" class="btn ghost small">打开</button></div>
+            <div id="maintainStatus" class="quick-status" role="status"></div>
+          </section>
+        </div>
+        <div class="settings-side">
+          <section class="panel">
+            <div class="panel-head"><div><h2>存储</h2><p>目录与来源</p></div><button id="btnOpenFolder" class="btn ghost small">打开</button></div>
+            <div class="path-row"><span>音乐库</span><code id="pathLibrary">–</code><button id="btnChangeLibrary" class="btn ghost small">更改</button></div>
+            <div class="path-row"><span>音源</span><code id="pathSources">–</code><button id="btnAddSource" class="btn ghost small">添加</button></div>
+            <div class="source-dir-list" id="sourceDirList"></div>
+            <div class="path-row"><span>音乐</span><code id="pathMusic">–</code><button class="copy-btn" data-copy="pathMusic" aria-label="复制音乐目录"><svg class="icon"><use href="#i-copy"/></svg></button></div>
+            <div class="path-row"><span>录音</span><code id="pathRec">–</code><button class="copy-btn" data-copy="pathRec" aria-label="复制录音目录"><svg class="icon"><use href="#i-copy"/></svg></button></div>
+            <div class="path-row"><span>报告</span><code id="pathReports">–</code><button class="copy-btn" data-copy="pathReports" aria-label="复制报告目录"><svg class="icon"><use href="#i-copy"/></svg></button></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>AI 控制</h2></div><span id="aiControlBadge" class="badge">关闭</span></div>
+            <div class="setting-row">
+              <div class="setting-icon"><svg class="icon"><use href="#i-plug"/></svg></div>
+              <div class="setting-copy"><strong>本地 MCP</strong><p id="aiControlState">未开启</p></div>
+              <button id="btnAiControlToggle" class="btn ghost small">开启</button>
+            </div>
+            <div class="path-row"><span>MCP</span><button id="btnCopyMcpConfig" class="btn ghost small">复制配置</button><button id="btnOpenAiControlDocs" class="btn ghost small">说明</button></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2>关于</h2><p>本机版本</p></div><span class="badge">v3.0</span></div>
+            <p class="small-text">go-music-dl · NAudio · TagLib# · MusicKey</p>
+            <details class="details"><summary>已知限制</summary><p id="qqNote">–</p><p>整理只新增、不移动来源；硬链接共享内容，编辑会两边同步。</p></details>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <div class="toast-wrap" id="toasts" aria-live="polite" aria-relevant="additions"></div>
+  </main>
+
+  <footer class="player" aria-label="播放器">
+    <div class="player-progress" id="playerProgress"><input id="seek" type="range" min="0" max="1000" value="0" aria-label="播放进度"><span class="seek-hover-tip" id="seekHoverTip" aria-hidden="true">0:00</span></div>
+    <div class="player-now">
+      <div class="player-art art" id="playerArt" data-initial="♪" role="button" tabindex="0" aria-label="查看歌词" title="查看歌词"><span class="art-initial">♪</span></div>
+      <div class="player-meta"><div class="player-title" id="playerTitle">未在播放</div><div class="player-artist" id="playerArtist">从音乐库选一首歌</div></div>
+    </div>
+    <div class="player-center">
+      <div class="transport">
+        <button id="btnPlayMode" class="transport-btn play-mode-single" aria-label="播放模式：顺序播放" title="顺序播放"><svg class="icon"><use id="playModeIcon" href="#i-order"/></svg><span id="playModeOne" class="mode-one hidden" aria-hidden="true">1</span></button>
+        <button id="btnPrev" class="transport-btn" aria-label="上一首" title="上一首"><svg class="icon"><use href="#i-prev"/></svg></button>
+        <button id="btnPlay" class="transport-play" aria-label="播放 / 暂停" title="播放 / 暂停"><svg class="icon"><use id="playIcon" href="#i-play"/></svg></button>
+        <button id="btnNext" class="transport-btn" aria-label="下一首" title="下一首"><svg class="icon"><use href="#i-next"/></svg></button>
+      </div>
+      <div class="seek-row hidden"><span id="curTime">0:00</span><span id="durTime">0:00</span></div>
+    </div>
+    <div class="player-side">
+      <span class="queue-pos hidden" id="playerQueue"></span>
+      <span class="badge hidden" id="playerFmt"></span>
+      <button id="btnSleep" class="transport-btn" aria-label="睡眠定时" aria-expanded="false" title="睡眠定时"><svg class="icon"><use href="#i-sleep"/></svg></button>
+      <button id="btnQueue" class="transport-btn queue-btn" aria-label="播放队列" aria-expanded="false" title="播放队列"><svg class="icon"><use href="#i-queue"/></svg><span id="queueBadge" class="queue-badge hidden">0</span></button>
+      <button id="btnFx" class="transport-btn fx-btn" aria-label="音效设置" title="音效" aria-expanded="false"><svg class="icon"><use href="#i-sliders"/></svg><i class="fx-dot" aria-hidden="true"></i></button>
+      <button id="btnMute" class="transport-btn" aria-label="静音" title="静音"><svg class="icon"><use id="muteIcon" href="#i-volume"/></svg></button>
+      <input id="volume" type="range" min="0" max="100" value="80" aria-label="音量">
+    </div>
+    <audio id="audio" preload="metadata"></audio>
+  </footer>
+
+  <div id="fxScrim" class="fx-scrim hidden"></div>
+  <aside id="fxDrawer" class="fx-drawer" aria-hidden="true" aria-labelledby="fxTitle">
+    <header class="fx-head">
+      <div><h2 id="fxTitle">音效</h2><p id="fxSub">本地播放实时处理，可随时旁通对比。</p></div>
+      <button id="btnFxClose" class="btn ghost icon-btn" aria-label="关闭音效面板"><svg class="icon"><use href="#i-x"/></svg></button>
+    </header>
+    <div class="fx-body">
+      <div class="fx-power">
+        <div><strong>启用音效</strong><p id="fxState">当前：原声</p></div>
+        <label class="fx-switch"><input id="fxEnabled" type="checkbox"><i aria-hidden="true"></i></label>
+      </div>
+      <div class="fx-meter" aria-hidden="true"><span>效果输出</span><div class="fx-meter-track"><i id="fxMeterBar"></i></div></div>
+      <div class="fx-presets" id="fxPresets" role="group" aria-label="音效预设"></div>
+      <div class="fx-block">
+        <div class="fx-row"><span>强度</span><output id="fxIntensityVal">100%</output></div>
+        <input id="fxIntensity" class="fx-range" type="range" min="0" max="100" step="5" value="100" aria-label="音效强度">
+      </div>
+      <div class="fx-block">
+        <div class="fx-row"><span>立体声宽度</span><output id="fxWidthVal">100%</output></div>
+        <input id="fxWidth" class="fx-range" type="range" min="0" max="150" step="5" value="100" aria-label="立体声宽度">
+      </div>
+      <details class="fx-advanced">
+        <summary><span>均衡器与音色</span><small>高级</small></summary>
+        <div class="fx-eq" id="fxEq" aria-label="十段均衡器"></div>
+        <div class="fx-tone">
+          <label class="fx-tone-row"><span>低音</span><input id="fxBass" class="fx-range" type="range" min="-10" max="10" step="1" value="0" aria-label="低音"></label>
+          <label class="fx-tone-row"><span>高音</span><input id="fxTreble" class="fx-range" type="range" min="-10" max="10" step="1" value="0" aria-label="高音"></label>
+        </div>
+      </details>
+      <div class="fx-actions">
+        <button id="fxBypass" class="btn ghost small">旁通 A/B</button>
+        <button id="fxReset" class="btn ghost small">恢复原声</button>
+      </div>
+      <p class="fx-note">设置保存在本机；不改变源文件，不影响下载。</p>
+    </div>
+  </aside>
+
+  <section id="lyricsView" class="lyrics-view" aria-hidden="true" aria-labelledby="lyricsTrackTitle">
+    <div class="lyrics-bg" id="lyricsBg"></div>
+    <div class="lyrics-wash"></div>
+    <header class="lyrics-top">
+      <button id="btnLyricsBack" class="lyrics-back" aria-label="关闭歌词面板" title="返回"><svg class="icon"><use href="#i-chevron-down"/></svg></button>
+      <div class="lyrics-top-copy"><span>正在播放</span><b>歌词</b></div>
+      <span id="lyricsBadge" class="badge hidden"></span>
+      <div class="lyrics-tools" aria-label="歌词同步微调">
+        <span>偏移</span>
+        <button id="lyricsOffsetMinus" type="button" title="歌词延后 0.2 秒" aria-label="歌词延后">−</button>
+        <button id="lyricsOffsetValue" type="button" title="点击归零" aria-label="当前歌词偏移">0.0s</button>
+        <button id="lyricsOffsetPlus" type="button" title="歌词提前 0.2 秒" aria-label="歌词提前">＋</button>
+      </div>
+    </header>
+    <div class="lyrics-stage">
+      <div class="lyrics-left">
+        <button class="lyrics-cover-wrap" id="lyricsCoverWrap" aria-label="关闭歌词面板" title="返回播放列表">
+          <span class="lyrics-cover" id="lyricsCover"><span id="lyricsInitial">♪</span></span>
+        </button>
+        <div class="lyrics-track">
+          <h1 id="lyricsTrackTitle">未在播放</h1>
+          <p id="lyricsTrackArtist">从音乐库选一首歌</p>
+          <div class="lyrics-state" id="lyricsState">歌词按播放进度同步</div>
+        </div>
+      </div>
+      <div class="lyrics-right">
+        <div class="lyrics-scroll" id="lyricsScroll">
+          <div class="lyrics-list" id="lyricsList" role="list">
+            <p class="lyrics-empty">播放歌曲后显示歌词</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="queueScrim" class="queue-scrim hidden"></div>
+  <aside id="queueDrawer" class="queue-drawer" aria-hidden="true" aria-labelledby="queueTitle">
+    <header class="queue-head">
+      <div><h2 id="queueTitle">播放队列</h2><p id="queueSub">0 首</p></div>
+      <button id="queueClose" class="btn ghost icon-btn" aria-label="关闭播放队列"><svg class="icon"><use href="#i-x"/></svg></button>
+    </header>
+    <div class="queue-list" id="queueList" role="list"></div>
+    <footer class="queue-foot"><span id="queueNow">未在播放</span><button id="queueClear" class="btn ghost small">清空队列</button></footer>
+  </aside>
+
+  <div id="trackMenu" class="track-menu hidden" role="menu" aria-label="歌曲操作">
+    <button type="button" role="menuitem" data-track-action="play"><svg class="icon"><use href="#i-play"/></svg>播放</button>
+    <button type="button" role="menuitem" data-track-action="next"><svg class="icon"><use href="#i-queue"/></svg>下一首播放</button>
+    <button type="button" role="menuitem" data-track-action="queue"><svg class="icon"><use href="#i-library"/></svg>加入队列</button>
+    <div class="track-menu-line"></div>
+    <button type="button" role="menuitem" data-track-action="copy"><svg class="icon"><use href="#i-copy"/></svg>复制歌曲信息</button>
+  </div>
+
+  <div id="sleepMenu" class="track-menu sleep-menu hidden" role="menu" aria-label="睡眠定时">
+    <button type="button" role="menuitem" data-sleep="15">15 分钟后暂停</button>
+    <button type="button" role="menuitem" data-sleep="30">30 分钟后暂停</button>
+    <button type="button" role="menuitem" data-sleep="45">45 分钟后暂停</button>
+    <button type="button" role="menuitem" data-sleep="60">60 分钟后暂停</button>
+    <button type="button" role="menuitem" data-sleep="90">90 分钟后暂停</button>
+    <div class="track-menu-line"></div>
+    <button type="button" role="menuitem" data-sleep="0">关闭睡眠定时</button>
+  </div>
+
+  <div class="info-popover" id="infoPopover" role="tooltip" hidden></div>
+
+  <div id="accountModal" class="account-modal hidden" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <div class="account-card" id="accountCard">
+      <div class="account-head">
+        <div><h2 id="accountTitle">平台账号</h2><p id="accountSub">在客户端内扫码登录，不打开网页。</p></div>
+        <button id="accountClose" class="btn ghost icon-btn" aria-label="关闭账号窗口"><svg class="icon"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="account-main" id="accountMain">
+        <div class="account-list" id="accountList"></div>
+        <div class="qr-panel hidden" id="qrPanel">
+          <div class="qr-top">
+            <button id="qrBack" class="btn ghost icon-btn qr-back" aria-label="返回账号列表">‹</button>
+            <div class="qr-top-copy"><h3 id="qrTitle">扫码登录</h3><p id="qrHint">打开对应 App，扫一扫二维码。</p></div>
+            <span id="qrState" class="status-pill status-waiting">等待扫码</span>
+          </div>
+          <div class="qr-frame"><img id="qrImage" alt="登录二维码"><div id="qrLoading" class="qr-loading">正在生成二维码…</div></div>
+          <div class="qr-steps"><span><b>1</b> 打开 App 扫一扫</span><span><b>2</b> 手机确认登录</span><span><b>3</b> 成功后自动关闭</span></div>
+          <div class="qr-actions"><button id="qrRefresh" class="btn ghost small">刷新二维码</button><button id="qrCancel" class="btn small">取消</button></div>
+        </div>
+      </div>
+      <p class="account-note">汽水音乐不需要在这里登录：客户端会读取本机已登录汽水客户端的登录态。网易云 / QQ 扫码成功后 Cookie 只保存在本机数据目录，不上传、不打印。</p>
+    </div>
+  </div>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText">
+    <div class="modal-card">
+      <div class="modal-kicker">请确认</div>
+      <h3 id="modalTitle">确认</h3>
+      <p id="modalText"></p>
+      <div class="modal-actions"><button id="modalCancel" class="btn ghost">取消</button><button id="modalOk" class="btn primary">确定</button></div>
+    </div>
+  </div>
+</div>
+<script src="i18n.js?v=20261031-16"></script>
+<script src="app.js?v=20261031-17"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

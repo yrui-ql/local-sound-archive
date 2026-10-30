@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>LSA</AssemblyName>
+    <RootNamespace>MusicArchive</RootNamespace>
+    <ApplicationIcon Condition="Exists('app.ico')">app.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+    <NuGetAudit>false</NuGetAudit>
+    <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.WebView2.Core"><HintPath>lib\Microsoft.Web.WebView2.Core.dll</HintPath></Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms"><HintPath>lib\Microsoft.Web.WebView2.WinForms.dll</HintPath></Reference>
+    <Reference Include="NAudio.Core"><HintPath>lib\NAudio.Core.dll</HintPath></Reference>
+    <Reference Include="NAudio.Wasapi"><HintPath>lib\NAudio.Wasapi.dll</HintPath></Reference>
+    <Reference Include="NAudio.WinMM"><HintPath>lib\NAudio.WinMM.dll</HintPath></Reference>
+    <Reference Include="TagLibSharp"><HintPath>lib\TagLibSharp.dll</HintPath></Reference>
+    <None Include="lib\WebView2Loader.dll"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory><Link>WebView2Loader.dll</Link></None>
+    <None Include="ui\**\*"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+    <None Include="extension-sdk\**\*"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+    <None Include="ai-control\**\*"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+    <EmbeddedResource Include="app.ico" Condition="Exists('app.ico')"><LogicalName>MusicArchive.app.ico</LogicalName></EmbeddedResource>
+  </ItemGroup>
+</Project>
+
